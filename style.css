@@ -274,12 +274,20 @@
   /* WHATSAPP – AJUSTES SOLO PARA MÓVIL */
 @media (max-width: 768px) {
   .whatsapp-btn {
-    position: static;          /* ya no es fijo */
-    width: 70px;               /* más grande */
-    height: 70px;
-    font-size: 28px;
-    margin: 30px auto 0;       /* centrado */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-decoration: none;
+    z-index: 1000;
   }
 }
 
