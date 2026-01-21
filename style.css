@@ -473,23 +473,7 @@
     );
   }
 }
-@media (max-width: 768px) {
-  .project-overlay {
-    position: static;
-    opacity: 1;
-    background: transparent;
-    color: #1f2937;
-    padding: 12px 0;
-  }
 
-  .project-card {
-    height: auto;
-  }
-
-  .project-card img {
-    border-radius: 14px;
-  }
-}
 
 
 
