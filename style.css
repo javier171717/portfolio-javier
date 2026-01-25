@@ -515,7 +515,11 @@
   border-radius: 18px;
   padding: 24px;
   color: white;
-  background: url("assets/services/soporte.jpg") center / cover no-repeat;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   box-shadow: 0 12px 28px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
@@ -525,6 +529,7 @@
     transform 0.55s ease,
     box-shadow 0.55s ease;
 }
+
 .service-card::before {
   content: "";
   position: absolute;
@@ -567,6 +572,28 @@
 .service-card:hover::before {
   background: rgba(0, 0, 0, 0.72);
 }
+/* IMÁGENES POR SERVICIO */
+
+.service-card.soporte {
+  background-image: url("assets/services/soporte.jpg");
+}
+
+.service-card.redes {
+  background-image: url("assets/services/redes.jpg");
+}
+
+.service-card.satelital {
+  background-image: url("assets/services/satelital.jpg");
+}
+
+.service-card.seguridad {
+  background-image: url("assets/services/seguridad.jpg");
+}
+
+.service-card.sistemas {
+  background-image: url("assets/services/sistemas.jpg");
+}
+
 
 
 /* MOBILE */
