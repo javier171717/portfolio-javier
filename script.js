@@ -1,5 +1,5 @@
 // Animaciones al hacer scroll
-const elements = document.querySelectorAll('.section, .card, .hero');
+const elements = document.querySelectorAll('.section, .hero');
 
 const showOnScroll = () => {
   const triggerBottom = window.innerHeight * 0.85;

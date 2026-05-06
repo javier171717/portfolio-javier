@@ -112,11 +112,24 @@
     font-weight: bold;
   }
   
-  /* CARDS */
+  /* CARDS — misma anchura por fila (evita 2 tarjetas gigantes en la última fila) */
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 900px) {
+    .cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 560px) {
+    .cards {
+      grid-template-columns: 1fr;
+    }
   }
   
   .card {
@@ -380,29 +393,27 @@
   object-fit: cover;
   border-radius: 14px;
 }
-/* PROJECT CARDS */
+/* PROJECT CARDS — mismo marco para todas (ancho de columna × ratio fijo) */
 .project-card {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  height: 260px;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.project-card {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  height: 260px;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 16 / 10;
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card img {
+  position: absolute;
+  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
   object-position: center;
   transition: transform 0.4s ease;
@@ -449,10 +460,14 @@
   transform: scale(1.08);
 }
 
+.project-card.login:hover img,
+.project-card.project-card--contain:hover img {
+  transform: scale(1.03);
+}
 
 @media (max-width: 768px) {
   .project-card {
-    height: 220px;
+    aspect-ratio: 4 / 3;
   }
 
   .project-overlay {
@@ -478,28 +493,11 @@
   line-height: 1.4;
 }
 
-/* HOVER EFFECT */
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
-.project-card:hover img {
-  transform: scale(1.08);
-}
-@media (max-width: 768px) {
-  .project-overlay {
-    opacity: 1;
-    background: linear-gradient(
-      rgba(0,0,0,0.1),
-      rgba(0,0,0,0.75)
-    );
-  }
-}
-
-/* LOGIN – mostrar imagen completa */
-.project-card.login img {
+/* Capturas móvil / UI: sin recorte agresivo */
+.project-card.login img,
+.project-card.project-card--contain img {
   object-fit: contain;
-  background: #f3f4f6;
+  background: #eceff3;
 }
 
 /* SERVICES */
