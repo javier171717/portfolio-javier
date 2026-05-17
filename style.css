@@ -430,6 +430,20 @@
   transition: opacity 0.4s ease;
 }
 
+.project-tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #dbeafe;
+  background: rgba(37, 99, 235, 0.35);
+}
+
 .project-overlay h3 {
   color: white;
   font-size: 20px;
@@ -497,6 +511,7 @@
 .project-card.login img,
 .project-card.project-card--contain img {
   object-fit: contain;
+  object-position: top center;
   background: #eceff3;
 }
 
