@@ -4,6 +4,11 @@
     margin: 0;
     padding: 0;
   }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
   
   /* BASE */
   body {
@@ -11,13 +16,24 @@
     color: #1f2937;
     background: #ffffff;
     line-height: 1.6;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
   }
   
   /* CONTAINER */
   .container {
+    width: 100%;
     max-width: 1000px;
     margin: auto;
     padding: 0 20px;
+  }
+
+  img:not(.project-card img),
+  svg,
+  video {
+    max-width: 100%;
+    height: auto;
   }
   
   /* SECTIONS */
@@ -210,18 +226,19 @@
   }
   
   
-  /* ANIMATIONS */
+  /* ANIMATIONS — solo eje Y para no provocar scroll horizontal */
   .section,
   .card,
   .hero {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translate3d(0, 30px, 0);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    max-width: 100%;
   }
   
   .visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   
   /* WHATSAPP */
@@ -348,7 +365,27 @@
 .tech-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
+}
+
+#technologies .container,
+#profile .container {
+  text-align: center;
+}
+
+#technologies h2,
+#profile h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contact .container {
+  text-align: center;
+}
+
+#contact a {
+  word-break: break-word;
 }
 
 .tech-item {
@@ -471,7 +508,7 @@
 }
 
 .project-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .project-card.login:hover img,
@@ -518,8 +555,42 @@
 /* SERVICES */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 24px;
+}
+
+@media (max-width: 768px) {
+  #technologies .tech-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  #technologies .tech-item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #profile .tech-list {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  #profile .link-pill {
+    flex: 0 1 auto;
+    max-width: 100%;
+  }
+
+  .section,
+  .cards,
+  .tech-list,
+  .services-grid {
+    max-width: 100%;
+  }
 }
 
 .service-card {
